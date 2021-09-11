@@ -1,2 +1,3 @@
-
-A generic snake-water-gun aka stone-paper-scissor game created in Python using random module , simple conditional statements and a loop. Will be adding GUI using tkinter soon, any changes are most welcome!
+# PYTHON PROJECTS
+This repository contains all the mini Python projects I built while explorting different Python Libraries.
+[SANKE-WATER-GUN](/SNAKE-WATER-GUN.py)
