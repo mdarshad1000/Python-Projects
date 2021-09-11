@@ -1,51 +1,71 @@
-#SNAKE WATER GUN
+# SNAKE WATER GUN
 import random
-options = ["s", "w", "g"]
-computer = random.choice(options)
 
-a = "User wins!"
-b = "Computer wins!"
-point_user = 1
-point_comp = 1
-i = 1
-while(i <= 10):
+# All possible inputs
+options = ['S', 'W', 'G']
 
-    user = input("Enter 'g' for gun, 's for snake', 'w' for water :\n")
-    if (computer == 'g' and user == 'g') or (computer == 'w' and user == 'w') or (computer == 's' and user == 's'):
-        print("It's a tie!")
-    elif computer == 'g' and user == 'w':
-        print(a,f"\nUser's point is {point_user}")
-        point_user = point_user + 1
-    elif computer == 's' and user == 'g':
-        print(a,f"\nUser's point is {point_user}")
-        point_user = point_user + 1
-    elif computer == 'w' and user == 's':
-        print(a,f"\nUser's point is {point_user}")
-        point_user = point_user + 1
-    elif computer == 'g' and user == 's':
-        print(b,f"\nComputer's point is {point_comp}")
-        point_comp = point_comp + 1
-    elif computer == 's' and user == 'w':
-        print(b,f"\nComputer's point is {point_comp}")
-        point_comp = point_comp + 1
-    elif computer == 'w' and user == 'g':
-        print(b,f"\nComputer's point is {point_comp}")
-        point_comp = point_comp + 1
-    else:
-        print("Enter valid input!")
-        break
-    print(f"{10 - i} rounds remaining\n"
-          f"Current score is U = {point_user-1}, C = {point_comp-1}")
-    i = i + 1
+# Welcome
+userName = input("~~~WELCOME TO SNAKE-WATER-GUN~~~\nEnter your name:\n")
 
-print(f"The final score is Computer = {point_comp-1},User = {point_user-1}")
-if point_comp - 1 > point_user - 1:
-    print("Computer wins the game!")
-elif point_user - 1 == point_comp - 1:
-    print("The game ends in a draw")
-else: print("User wins the game")
+# No. of rounds
+rounds = int(input("Enter the number of rounds:  "))
 
-if i > 10:
-    print(f"Game over!")
+# User's point
+userPts = 0
+# Computer's point
+comPts = 0
 
+tries = 1
+while tries <= rounds:
+    # User's input
+    userInput = input("Press G -> gun\n\t  S -> snake\n\t  W -> water: ").upper()
+    # Computer's input
+    computer = random.choice(options)
 
+    # To prevent a wrong input
+    if userInput not in options:
+        print("Enter a valid input!")
+        continue
+
+    elif userInput == 'G':
+        if computer == 'G':
+            print("\nIt's a tie!")
+        elif computer == 'S':
+            print(f'{userName} Wins!')
+            userPts += 1
+        elif computer == 'W':
+            print(f'Computer wins! Hard luck {userName} :(')
+            comPts += 1
+
+    elif userInput == 'S':
+        if computer == 'S':
+            print("\nIt's a tie!")
+        elif computer == 'W':
+            print(f'{userName} Wins!')
+            userPts += 1
+        elif computer == 'G':
+            print(f'Computer wins! Hard luck {userName} :(')
+            comPts += 1
+
+    elif userInput == 'W':
+        if computer == 'W':
+            print("\nIt's a tie!")
+        elif computer == 'G':
+            print(f'{userName} Wins!')
+            userPts += 1
+        elif computer == 'S':
+            print(f'Computer wins! Hard luck {userName} :(')
+            comPts += 1
+
+    print(f'{rounds - tries} rounds remaining.\n'
+          f"Current score is {userName} = {userPts}, Computer = {comPts}")
+    tries += 1
+
+# When the game os over.
+if tries > rounds:
+    print(f"\n\nGame over!\nThe final score is Computer = {comPts} & {userName} = {userPts}")
+    if comPts > userPts:
+        print(f"Computer wins the game, Good luck next time {userName}!!")
+    elif userPts == comPts:
+        print("The game ends in a draw.")
+    else: print(f"Congratulations {userName}! You've won the game.")
