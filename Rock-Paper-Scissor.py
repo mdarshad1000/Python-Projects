@@ -2,10 +2,10 @@
 import random
 
 # All possible inputs
-options = ['S', 'W', 'G']
+options = ['R', 'P', 'S']
 
 # Welcome
-userName = input("~~~WELCOME TO SNAKE-WATER-GUN~~~\nEnter your name:\n")
+userName = input("~~~WELCOME TO ROCK-PAPER-SCISSOR~~~\nEnter your name:\n")
 
 # No. of rounds
 rounds = int(input("Enter the number of rounds:  "))
@@ -18,7 +18,7 @@ comPts = 0
 tries = 1
 while tries <= rounds:
     # User's input
-    userInput = input("Press G -> gun\n\t  S -> snake\n\t  W -> water: ").upper()
+    userInput = input("Press R -> rock\n\t  P -> paper\n\t  S -> scissor: ").upper()
     # Computer's input
     computer = random.choice(options)
 
@@ -27,33 +27,33 @@ while tries <= rounds:
         print("Enter a valid input!")
         continue
 
-    elif userInput == 'G':
-        if computer == 'G':
+    elif userInput == 'R':
+        if computer == 'R:
             print("\nIt's a tie!")
         elif computer == 'S':
             print(f'{userName} Wins!')
             userPts += 1
-        elif computer == 'W':
+        elif computer == 'P':
+            print(f'Computer wins! Hard luck {userName} :(')
+            comPts += 1
+
+    elif userInput == 'P':
+        if computer == 'P':
+            print("\nIt's a tie!")
+        elif computer == 'R':
+            print(f'{userName} Wins!')
+            userPts += 1
+        elif computer == 'S':
             print(f'Computer wins! Hard luck {userName} :(')
             comPts += 1
 
     elif userInput == 'S':
         if computer == 'S':
             print("\nIt's a tie!")
-        elif computer == 'W':
+        elif computer == 'P':
             print(f'{userName} Wins!')
             userPts += 1
-        elif computer == 'G':
-            print(f'Computer wins! Hard luck {userName} :(')
-            comPts += 1
-
-    elif userInput == 'W':
-        if computer == 'W':
-            print("\nIt's a tie!")
-        elif computer == 'G':
-            print(f'{userName} Wins!')
-            userPts += 1
-        elif computer == 'S':
+        elif computer == 'R':
             print(f'Computer wins! Hard luck {userName} :(')
             comPts += 1
 
