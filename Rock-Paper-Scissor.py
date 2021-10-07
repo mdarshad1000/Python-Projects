@@ -1,10 +1,8 @@
-# SNAKE WATER GUN
 import random
 
 # All possible inputs
 options = ['R', 'P', 'S']
 
-# Welcome
 userName = input("~~~WELCOME TO ROCK-PAPER-SCISSOR~~~\nEnter your name:\n")
 
 # No. of rounds
@@ -61,7 +59,7 @@ while tries <= rounds:
           f"Current score is {userName} = {userPts}, Computer = {comPts}")
     tries += 1
 
-# When the game os over.
+# When the game is over.
 if tries > rounds:
     print(f"\n\nGame over!\nThe final score is Computer = {comPts} & {userName} = {userPts}")
     if comPts > userPts:
