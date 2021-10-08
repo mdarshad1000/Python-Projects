@@ -6,3 +6,6 @@ This repository contains all the mini Python projects that I've built while expl
   A Library Management system which has the features of adding, lending and returning a Book. A simple implementation of OOP concepts.
 * [Age-Calculator](/Age-Calculator.py)
   Calculates the age of the user, build using datetime module.
+* [Gusessing-game](/Guessing-game.py)
+  A number guessing game where you can guess the number from a range of number of your choice in desired
+  no. of rounds. 
